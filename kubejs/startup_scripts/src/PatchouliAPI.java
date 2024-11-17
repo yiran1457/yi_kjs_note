@@ -1,280 +1,110 @@
-package vazkii.patchouli.api;
-
-import com.google.common.base.Suppliers;
-
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.Property;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import vazkii.patchouli.api.stub.StubPatchouliAPI;
-
-import org.jetbrains.annotations.Nullable;
-
-import java.io.InputStream;
-import java.util.Map;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-
+//仅供个人查询api方法
 public class PatchouliAPI {
-	private static final Supplier<IPatchouliAPI> LAZY_INSTANCE = Suppliers.memoize(() -> {
-		try {
-			return (IPatchouliAPI) Class.forName("vazkii.patchouli.common.base.PatchouliAPIImpl").newInstance();
-		} catch (ReflectiveOperationException e) {
-			LogManager.getLogger().warn("Unable to find PatchouliAPIImpl, using a dummy");
-			return StubPatchouliAPI.INSTANCE;
-		}
-	});
 
-	/**
-	 * Obtain the Patchouli API, either a valid implementation if Patchouli is present, else
-	 * a no-op stub instance if Patchouli is absent.
-	 * Note that many API functions make no sense to call before books are loaded (which is on login),
-	 * please use common sense and your best judgment.
-	 */
-	public static IPatchouliAPI get() {
-		return LAZY_INSTANCE.get();
-	}
+// ================================================================================================
+// Multiblocks
+// ================================================================================================
 
-	public static final String MOD_ID = "patchouli";
-	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
-
-	public interface IPatchouliAPI {
-
-		// ================================================================================================
-		// API
-		// ================================================================================================
-
-		/**
-		 * Returns false if this is a real API class loaded by the actual mod.
-		 */
-		boolean isStub();
-
-		/**
-		 * @return A read-only view of Patchouli's config options
-		 */
-		PatchouliConfigAccess getConfig();
-
-		// ================================================================================================
-		// Book and Templates
-		// ================================================================================================
-
-		/**
-		 * Sets a config flag to the value passed.<br>
-		 * This is safe to call during parallel mod loading.<br>
-		 * IMPORTANT: DO NOT call this without your flag being prefixed with your
-		 * mod id. There is no protection against that, but don't be a jerk.
-		 */
-		void setConfigFlag(String flag, boolean value);
-
-		/**
-		 * Gets the value of a config flag, or false if it doesn't have a value.
-		 */
-		boolean getConfigFlag(String flag);
-
-		/**
-		 * Sends a network message to the given player
-		 * to open the given book to the last page that was open, or the landing page otherwise.
-		 */
-		void openBookGUI(ServerPlayer player, ResourceLocation book);
-
-		/**
-		 * Sends a network message to the given player
-		 * to open the book to the given entry
-		 * 
-		 * @param page Zero-indexed page number
-		 */
-		void openBookEntry(ServerPlayer player, ResourceLocation book, ResourceLocation entry, int page);
-
-		/**
-		 * Client version of {@link #openBookGUI(ServerPlayer, ResourceLocation)}.
-		 */
-		void openBookGUI(ResourceLocation book);
-
-		/**
-		 * Client version of {@link #openBookEntry(ServerPlayer, ResourceLocation, ResourceLocation, int)}
-		 */
-		void openBookEntry(ResourceLocation book, ResourceLocation entry, int page);
-
-		/**
-		 * Returns the book ID of the currently open book, if any. Only works clientside.
-		 */
-		@Nullable
-		ResourceLocation getOpenBookGui();
-
-		/**
-		 * Works on both sides.
-		 * 
-		 * @return                          The subtitle (edition string/what appears under the title in the landing
-		 *                                  page) of the book.
-		 * @throws IllegalArgumentException if the book id given cannot be found
-		 */
-		Component getSubtitle(ResourceLocation bookId);
-
-		/**
-		 * Returns a book item with its NBT set to the book passed in. Works on both sides.
-		 */
-		ItemStack getBookStack(ResourceLocation book);
-
-		/**
-		 * Register a template you made as a built in template to be used with all books
-		 * as the "res" resource location. The supplier should give an input stream that
-		 * reads a full json file, containing a template.
-		 * Only works on client.
-		 */
-		void registerTemplateAsBuiltin(ResourceLocation res, Supplier<InputStream> streamProvider);
-
-		/**
-		 * Register a Patchouli command, of the type $(cmdname).
-		 * A command gets an IStyleStack if it wishes to modify it (for example, $(o) italicizes),
-		 * and returns the text that should replace the command (for example, $(playername) is replaced
-		 * with the current player's username). Commands that only modify style should return "".
-		 * This is thread safe. Only works on client.
-		 */
-		void registerCommand(String name, Function<IStyleStack, String> command);
 /**
- * 注册一个 Patchouli 函数，类型为 $(funcname:arg)。
- * 函数类似于命令，
- * 但会额外接收一个参数（冒号后的文本），
- * 用于条件格式化或不同的返回值。
- * 例如，$(k:use) 默认被替换为“右键”。
- * 这个操作是线程安全的。仅在客户端有效。
+ * 根据 ID 获取多方块，如果不存在则返回 null。
  */
-void registerFunction(String funcname, Function<String, String> function);
+@Nullable
+IMultiblock getMultiblock(ResourceLocation id);
 
-		// ================================================================================================
-		// Multiblocks
-		// ================================================================================================
+/**
+ * 根据资源位置注册一个多方块。这不仅会注册多方块，还会将其资源位置设置为传递的资源位置。
+ */
+IMultiblock registerMultiblock(ResourceLocation id, IMultiblock mb);
 
-		/**
-		 * Gets a multiblock by its ID, or null if none exists for it.
-		 */
-		@Nullable
-		IMultiblock getMultiblock(ResourceLocation id);
+/**
+ * @return 当前在世界中可视化显示的多方块，如果没有多方块被可视化则返回 null。仅在客户端有效。
+ */
+@Nullable
+IMultiblock getCurrentMultiblock();
+/**
+ * 设置给定的多方块为当前可视化的多方块。这将覆盖任何当前正在可视化的多方块。
+ * 仅在客户端有效。
+ * 
+ * @param multiblock  要可视化的多方块
+ * @param displayName 显示在完成条上方的名称
+ * @param center      多方块中心的位置
+ * @param rotation    可视化的方向
+ */
+void showMultiblock(IMultiblock multiblock, Component displayName, BlockPos center, Rotation rotation);
 
-		/**
-		 * Registers a multiblock given its resource location. This takes care of both registering it
-		 * and setting its resource location to the one passed.
-		 */
-		IMultiblock registerMultiblock(ResourceLocation id, IMultiblock mb);
+/**
+ * 清除当前可视化的多方块。仅在客户端有效。
+ */
+void clearMultiblock();
 
-		/**
-		 * @return The multiblock currently being visualized in-world or null if no multiblock is visualized. Only works
-		 *         clientside.
-		 */
-		@Nullable
-		IMultiblock getCurrentMultiblock();
+/**
+ * 根据给定的模式和目标创建一个多方块。这与配方注册的方式相同，只是它是一个二维数组。
+ * 模式的工作方式与使用 JSON 注册多方块的方式相同。有关更多信息，请参阅 Patchouli 维基上的多方块页面。
+ * <br>
+ * <br>
+ * 至于目标数组，它的格式也与配方相同。每个字符后面跟着一个对象，依此类推，定义每种类型。
+ * 对象可以是 Block、BlockState 或 IStateMatcher。
+ */
+IMultiblock makeMultiblock(String[][] pattern, Object... targets);
 
-		/**
-		 * Sets the given multiblock as the currently visualized one. This overwrites any currently visualized
-		 * multiblock.
-		 * Only works clientside.
-		 * 
-		 * @param multiblock  The multiblock to visualize
-		 * @param displayName The name to show above the completion bar
-		 * @param center      Where to place the multiblock's center
-		 * @param rotation    Orientation to visualize
-		 */
-		void showMultiblock(IMultiblock multiblock, Component displayName, BlockPos center, Rotation rotation);
+/**
+ * 创建一个稀疏的多方块。这在多方块较大且难以用二维网格指定的情况下非常有用。
+ * 稀疏多方块的中心始终为 (0, 0, 0)，而 {@code positions} 的键相对于该空间。
+ */
+IMultiblock makeSparseMultiblock(Map<BlockPos, IStateMatcher> positions);
 
-		/**
-		 * Clears the currently visualized multiblock. Only works clientside.
-		 */
-		void clearMultiblock();
+/**
+ * 使用传递的 BlockState 进行显示，并使用传递的谓词进行验证，创建一个 IStateMatcher。
+ */
+IStateMatcher predicateMatcher(BlockState display, Predicate<BlockState> predicate);
 
-		/**
-		 * Creates a multiblock given the pattern and targets given. This works in the same way as
-		 * recipe registrations do, except it's a 2D array. The pattern works in the same way as
-		 * you'd register a multiblock using JSON. Check the page on Multiblocks on the Patchouli
-		 * wiki for more info.
-		 * <br>
-		 * <br>
-		 * As for the target array, it's in also in the same format as recipes. One char followed
-		 * by one Object, so on and so forth, defining each type. The Object can be a Block, an
-		 * BlockState, or an IStateMatcher.
-		 */
-		IMultiblock makeMultiblock(String[][] pattern, Object... targets);
+/**
+ * 使用传递的 Block 的默认状态进行显示，并使用传递的谓词进行验证，创建一个 IStateMatcher。
+ */
+IStateMatcher predicateMatcher(Block display, Predicate<BlockState> predicate);
 
-		/**
-		 * Create a sparse multiblock. This is useful in situations where the multiblock is large and unwieldy
-		 * to specify in a 2D grid. The center of a sparse multiblock is always (0, 0, 0), and the keys
-		 * of {@code positions} are relative to that space.
-		 */
-		IMultiblock makeSparseMultiblock(Map<BlockPos, IStateMatcher> positions);
+/**
+ * 使用传递的 BlockState 进行显示和验证，要求世界中的状态必须完全相同，创建一个 IStateMatcher。
+ */
+IStateMatcher stateMatcher(BlockState state);
+/**
+ * 使用传递的 BlockState 进行显示和验证，要求只有指定的属性相同，创建一个 IStateMatcher。
+ */
+IStateMatcher propertyMatcher(BlockState state, Property<?>... properties);
 
-		/**
-		 * Creates an IStateMatcher using the passed in BlockState for display and the passed in
-		 * predicate for validation.
-		 */
-		IStateMatcher predicateMatcher(BlockState display, Predicate<BlockState> predicate);
+/**
+ * 使用传递的 Block 的默认状态进行显示和验证，要求世界中的状态仅具有相同的方块，创建一个 IStateMatcher。
+ */
+IStateMatcher looseBlockMatcher(Block block);
 
-		/**
-		 * Creates an IStateMatcher with the passed in Block's default state for display and the
-		 * passed in predicate for validation.
-		 */
-		IStateMatcher predicateMatcher(Block display, Predicate<BlockState> predicate);
+/**
+ * 使用传递的 Block 的默认状态进行显示和验证，要求世界中的状态必须完全相同，创建一个 IStateMatcher。
+ */
+IStateMatcher strictBlockMatcher(Block block);
 
-		/**
-		 * Creates an IStateMatcher with the passed in BlockState for display and validation,
-		 * requiring that the state in world be exactly the same.
-		 */
-		IStateMatcher stateMatcher(BlockState state);
+/**
+ * 创建一个 IStateMatcher，该匹配器总是验证为 true，并在显示时显示传递的 BlockState。
+ */
+IStateMatcher displayOnlyMatcher(BlockState state);
+/**
+ * 创建一个 IStateMatcher，该匹配器总是验证为 true，并在显示时显示传递的 Block 的默认状态。
+ */
+IStateMatcher displayOnlyMatcher(Block block);
 
-		/**
-		 * Creates an IStateMatcher with the passed in BlockState for display and validation,
-		 * requiring that only the specified properties are the same.
-		 */
-		IStateMatcher propertyMatcher(BlockState state, Property<?>... properties);
+/**
+ * @return 返回一个接受给定标签中任何方块的状态匹配器
+ */
+IStateMatcher tagMatcher(TagKey<Block> block);
 
-		/**
-		 * Creates an IStateMatcher with the passed in Block's default state for display and
-		 * validation, requiring that the state in world have only the same block.
-		 */
-		IStateMatcher looseBlockMatcher(Block block);
+/**
+ * 创建一个只接受空气方块的 IStateMatcher。
+ */
+IStateMatcher airMatcher();
 
-		/**
-		 * Creates an IStateMatcher with the passed in Block's default state for display and
-		 * validation, requiring that the state in world be exactly the same.
-		 */
-		IStateMatcher strictBlockMatcher(Block block);
-
-		/**
-		 * Creates an IStateMatcher that always validates to true, and shows the BlockState
-		 * passed when displayed.
-		 */
-		IStateMatcher displayOnlyMatcher(BlockState state);
-
-		/**
-		 * Creates an IStateMatcher that always validates to true, and shows the passed in
-		 * Block's default state when displayed.
-		 */
-		IStateMatcher displayOnlyMatcher(Block block);
-
-		/**
-		 * @return A state matcher that accepts any block in the given tag
-		 */
-		IStateMatcher tagMatcher(TagKey<Block> block);
-
-		/**
-		 * Creates an IStateMatcher that accepts only air blocks.
-		 */
-		IStateMatcher airMatcher();
-
-		/**
-		 * Creates an IStateMatcher that accepts anything.
-		 */
-		IStateMatcher anyMatcher();
+/**
+ * 创建一个接受任何状态的 IStateMatcher。
+ */
+IStateMatcher anyMatcher();
 	}
 
 }
