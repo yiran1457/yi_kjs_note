@@ -1,6 +1,6 @@
 
-
-if (config.exmplerecipes) {
+//通过读取外部的config.json来控制示例配方的注册
+//if (config.exmplerecipes) {
     let { MrCrayfish, ae2, cataclysm, integrateddynamics , mna2 , iceandfire} = Recipes$Tool.recipes
     ServerEvents.recipes(e => {
 
@@ -201,6 +201,6 @@ if (config.exmplerecipes) {
 
 
     })
-}
+//}
 
 
