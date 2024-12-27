@@ -1,4 +1,5 @@
 
+//根据lang来自动生成tooltip
 let tooltip_path
 //设置lang的命名空间
 let namespace = 'autotooltip'
@@ -14,7 +15,7 @@ ClientEvents.loggedIn(e => {
 
 /*
     lang键以tooltip.modid.itemid为开头，后面可随意添加
-    若添加了shift或ctrl会进行对应的检测(.shift|.noshift|.ctrl|.noctrl)
+    若添加了shift或ctrl或alt会进行对应的检测(.shift|.noshift|.ctrl|.noctrl|.alt|.noalt)
     示例json
     {
         "tooltip.minecraft.iron_ingot.shift.ctrl":"shift+ctrl",
@@ -40,35 +41,31 @@ ItemEvents.tooltip(e => {
                 //将itemid数组合并成物品id
                 itemid = itemid[1] + ':' + itemid[2]
                 e.addAdvanced(itemid, (item, unkonwn, text) => {
-                    //进行对shift和ctrl的需求判断
-                    {
-                        if (langkey.includes('shift') && langkey.includes('ctrl')) {
-                            if (langkey.includes('.shift') && langkey.includes('.ctrl')) {
-                                if (e.shift && e.ctrl) { text.add(1, Text.translatable(langkey)) }
-                            }
-                            else if (langkey.includes('.noshift') && langkey.includes('.ctrl')) {
-                                if (!e.shift && e.ctrl) { text.add(1, Text.translatable(langkey)) }
-                            }
-                            else if (langkey.includes('.shift')) {
-                                if (e.shift && !e.ctrl) text.add(1, Text.translatable(langkey))
-                            }
-                            else if (!e.shift && !e.ctrl) { text.add(1, Text.translatable(langkey)) }
+                    //进行对shift和ctrl和alt的需求判断
+                    let Ctrl , Shift , Alt
+                    if (langkey.includes('shift')){
+                        if(langkey.includes('.shift')){
+                            Shift = e.shift
+                        }else{
+                            Shift = !e.shift
                         }
-                        else if (langkey.includes('shift')) {
-                            if (langkey.includes('.shift')) {
-                                if (e.shift) { text.add(1, Text.translatable(langkey)) }
-                            }
-                            else if (!e.shift) { text.add(1, Text.translatable(langkey)) }
+                    }else {Shift = true}
+                    if (langkey.includes('ctrl')){
+                        if(langkey.includes('.ctrl')){
+                            Ctrl = e.ctrl
+                        }else{
+                            Ctrl = !e.ctrl
                         }
-                        else if (langkey.includes('ctrl')) {
-                            if (langkey.includes('.ctrl')) {
-                                if (e.ctrl) { text.add(1, Text.translatable(langkey)) }
-                            }
-                            else if (!e.ctrl) { text.add(1, Text.translatable(langkey)) }
+                    }else {Ctrl = true}
+                    if (langkey.includes('alt')){
+                        if(langkey.includes('.alt')){
+                            Alt = e.alt
+                        }else{
+                            Alt = !e.alt
                         }
-                        else {
-                            text.add(1, Text.translatable(langkey))
-                        }
+                    }else {Alt = true}
+                    if(Ctrl && Shift && Alt){
+                        text.add(1, Text.translatable(langkey))
                     }
                 })
             }
