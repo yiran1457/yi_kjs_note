@@ -7,15 +7,15 @@
     材料数据从 data/tetra/materials/ 文件夹加载
   </p>
 <h2>Material</h2>
-
+<p>
 在 tetra 中定义材料数据。此资源中的大多数字段都可用于模块变体和原理图结果，并且在该上下文中阅读时可能更容易理解。
 
 Format:
-replaceoptionalboolean
-标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材质的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。
+>replaceoptionalboolean
+>标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材质的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。
 
-keystring
-材料的标识符，将用作此材料的模块变体的后缀。
+>keystring
+>材料的标识符，将用作此材料的模块变体的后缀。
 
 categoryoptionalstring
 适用于此材料的所有模块变体。
@@ -150,7 +150,7 @@ array[
 string
 ]
 在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。
-
+</p>
 Examples:
 {
   "key": "oak",
