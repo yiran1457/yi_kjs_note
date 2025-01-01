@@ -23,8 +23,7 @@ Format:
 >hiddenoptionalboolean
 >如果设置为 true，则此材料不会显示在全息层中。
 >
->hiddenOutcomesoptionalboolean
->如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。
+>hiddenOutcomes optional boolean<br>如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。
 >
 >primarynumber
 >主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。
