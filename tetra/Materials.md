@@ -27,6 +27,7 @@
 >-材料的标识符，将用作此材料的模块变体的后缀。 <br>
 
 >category optional string <br>
+
 >适用于此材料的所有模块变体。 <br>
 >hidden optional boolean <br>
 >如果设置为 true，则此材料不会显示在全息层中。 <br>
