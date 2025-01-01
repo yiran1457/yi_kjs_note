@@ -1,11 +1,11 @@
-<h1>Materials</h1>
+<h1>Materials
 
-<h2>现在可以为每个材料定义一些属性，然后定义来自模块和原理图的引用。<h3>asfdasdasdadsasfas</h3></h2>
+<h2>现在可以为每个材料定义一些属性，然后定义来自模块和原理图的引用。
 
 <h2>材质数据根据材质的类型（例如 ， 或 ）组织在文件夹中，每个材质一个文件/资源。Modules 和 然后，Schematics 可以引用特定的材料（例如 或 ） 或某种类型的所有材质（例如 或 ） 并定义了如何 这些材料的特性应该应用于模块.woodmetalskinwood/sprucemisc/bonewoodmetal</h2>
 
 材质数据是从文件夹加载的.data/tetra/materials/
-
+</h2>
 Material
 在 tetra 中定义材料数据。此资源中的大多数字段都可用于模块变体和原理图结果，并且在该上下文中阅读时可能更容易理解。
 
@@ -260,3 +260,19 @@ Structure
     ├── oak.json
     ├── spruce.json
     └── warped.json
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
