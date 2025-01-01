@@ -1,20 +1,11 @@
 <h1>Materials</h1>
-
-<p>现在可以为每个材料定义一些属性，然后定义来自模块和原理图的引用。
-<br>
-<br>
-材质数据根据材质的类型（例如 ， 或 ）组织在文件夹中，每个材质一个文件/资源。
-  <br>
-  Modules 和 然后，Schematics 可以引用特定的材料（例如 或 ） 或某种类型的所有材质（例如 或 ） 并定义了如何 这些材料的特性应该应用于模块.woodmetalskinwood/sprucemisc/bonewoodmetal
-<br>
-材质数据是从文件夹加载的.data/tetra/materials/
-<br>
-现在可以按材料定义某些属性，然后模块和蓝图可以引用这些属性。
-<br>
-材料数据按照材料类型组织在文件夹中（例如，wood、metal 或 skin），每个材料对应一个文件/资源。模块和蓝图可以引用特定的材料（例如，wood/spruce 或 misc/bone）或某种类型的全部材料（例如，wood 或 metal），并定义这些材料的属性如何应用于模块。
-<br>
-材料数据从 data/tetra/materials/ 文件夹加载
-</p>
+  <p>
+    现在可以按材料定义某些属性，然后模块和蓝图可以引用这些属性。<br>
+    <br>
+    材料数据按照材料类型组织在文件夹中（例如，wood、metal 或 skin），每个材料对应一个文件/资源。模块和蓝图可以引用特定的材料（例如，wood/spruce 或 misc/bone）或某种类型的全部材料（例如，wood 或 metal），并定义这些材料的属性如何应用于模块。<br>
+    <br>
+    材料数据从 data/tetra/materials/ 文件夹加载
+  </p>
 <h2>Material</h2>
 
 在 tetra 中定义材料数据。此资源中的大多数字段都可用于模块变体和原理图结果，并且在该上下文中阅读时可能更容易理解。
