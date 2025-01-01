@@ -12,34 +12,25 @@
 
   Format:<br>
     >replace optional boolean <br>
-    >标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材质的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。
-    >
+    >标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材质的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。 <br>
     >key string <br>
-    >材料的标识符，将用作此材料的模块变体的后缀。
-    >
+    >材料的标识符，将用作此材料的模块变体的后缀。 <br>
     >category optional string <br>
-    >适用于此材料的所有模块变体。
-    >
+    >适用于此材料的所有模块变体。 <br>
     >hidden optional boolean <br>
-    >如果设置为 true，则此材料不会显示在全息层中。
-    >
+    >如果设置为 true，则此材料不会显示在全息层中。 <br>
     >hiddenOutcomes optional boolean <br>
-    >如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。
-    >
-    >primary number
-    >主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。
-    >
-    >secondary number
-    >次要属性和效果的乘数。应表示材料密度、刚度或重量，即摆动时携带多少动能。材质模块变体在确定属性和效果时引用此属性。
-    >
-    >tertiary number
-    >三级属性和效果的乘数。应代表柔韧性或抗拉强度，这种材料在弯曲时回弹的速度有多快。材质模块变体在确定属性和效果时引用此属性。
-    >
-    >durability number
-    >耐久度基础，模块使用它来决定平坦或乘数耐久度加成。
-    >
-    >integrityGain number
-    >提供完整性的模块的乘数。
+    >如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。 <br>
+    >primary number <br>
+    >主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。 <br>
+    >secondary number <br>
+    >次要属性和效果的乘数。应表示材料密度、刚度或重量，即摆动时携带多少动能。材质模块变体在确定属性和效果时引用此属性。 <br>
+    >tertiary number <br>
+    >三级属性和效果的乘数。应代表柔韧性或抗拉强度，这种材料在弯曲时回弹的速度有多快。材质模块变体在确定属性和效果时引用此属性。 <br>
+    >durability number <br>
+    >耐久度基础，模块使用它来决定平坦或乘数耐久度加成。 <br>
+    >integrityGain number <br>
+    >提供完整性的模块的乘数。 <br>
     >
     >integrityCost number
     >消耗完整性的模块的乘数。
