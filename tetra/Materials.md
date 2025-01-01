@@ -13,22 +13,22 @@
 Format:
 >replaceoptionalboolean
 >标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材质的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。
-
+>
 >keystring
 >材料的标识符，将用作此材料的模块变体的后缀。
-
-categoryoptionalstring
-适用于此材料的所有模块变体。
-
-hiddenoptionalboolean
-如果设置为 true，则此材料不会显示在全息层中。
-
-hiddenOutcomesoptionalboolean
-如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。
-
-primarynumber
-主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。
-
+>
+>categoryoptionalstring
+>适用于此材料的所有模块变体。
+>
+>hiddenoptionalboolean
+>如果设置为 true，则此材料不会显示在全息层中。
+>
+>hiddenOutcomesoptionalboolean
+>如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。
+>
+>primarynumber
+>主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。
+>
 secondarynumber
 次要属性和效果的乘数。应表示材料密度、刚度或重量，即摆动时携带多少动能。材质模块变体在确定属性和效果时引用此属性。
 
