@@ -21,7 +21,7 @@
 
   Format:<br>
   
-    >replace optional boolean <br>
+  >replace optional boolean <br>
     >标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材质的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。
     
 >-key string <br>
