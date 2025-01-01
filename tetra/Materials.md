@@ -6,7 +6,8 @@
 <br>
 材质数据是从文件夹加载的.data/tetra/materials/
 </p>
-Material
+<h2>Material</h2>
+
 在 tetra 中定义材料数据。此资源中的大多数字段都可用于模块变体和原理图结果，并且在该上下文中阅读时可能更容易理解。
 
 Format:
