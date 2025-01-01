@@ -13,7 +13,7 @@
 
   >1
 >>11
->111
+>>111
 
   Format:<br>
     >replace optional boolean <br>
