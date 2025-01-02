@@ -175,7 +175,7 @@
 <p>
 用于与材质相关的本地化条目的键：<br>
 <br>
-tetra.material.\<material_key\>: 材质的名称，显示在全息球和工作台的“适用材质”工具提示中 <br>
+tetra.material.&lt;material_key\>: 材质的名称，显示在全息球和工作台的“适用材质”工具提示中 <br>
 tetra.material.\<material_key\>.prefix: 用于为源自此材料的模块变体和改进添加前缀 <br>
 tetra.material.feature.\<feature_key\>: 用于功能的标签，显示在全息球中 <br>
 tetra.material.feature.\<feature_key\>.tooltip: 将鼠标悬停在 holosphere UI 中的功能时，会显示此工具提示 <br>
