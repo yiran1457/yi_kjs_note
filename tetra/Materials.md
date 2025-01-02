@@ -43,50 +43,49 @@
 >integrityGain number <br>
 >提供完整性的模块的乘数。 <br>
 
+>integrityCost number <br>
+>消耗完整性的模块的乘数。 <br>
 
-    >integrityCost number
-    >消耗完整性的模块的乘数。
-    >
-    >magicCapacity unknown
-    >由这种材料制成的主要模块变体的神奇容量。
-    >
-    >toolLevel Tier
-    >提供根据材质而变化的工具的模块使用此参数来确定工具的级别。
-    >
-    >toolEfficiency number
-    >提供根据材质而变化的工具的模块使用此参数来确定工具的效率。
-    >
-    >effectsoptional Tiered data
-    >将由模块继承的效果以及从此材料制作的改进。
-    >
-    >attributes optional map[ string : number ]
-    >从材质中获得的先天属性、所有由此材质制作的模块和改进都将继承这些属性。
-    >
-    >aspects optional map[ string : unknown ]
-    >模块将继承的星相以及由此材料制作的改进。适用于材质应影响模块如何通过改进和附魔进行修改的情况。
-    >
-    >improvements optional map[ string : unknown ]
-    >由此材料制成的所有主要模块都将进行这些改进。当用材质制作的主要模块应该有一些效果，但次要模块或改进不应该有效果时很有用。
-    >
-    >tags optional array[ string ]
-    >从此材料派生的变体和改进将在此处列出标签。变体和改进可能会添加其他标签。这是一个 hacky 解决方案，有关更多信息，请参阅模块变体的架构。
-    >
-    >tints optional
-    >>glyph optional Hexadecimal
-    >>用于在 UI 中对字形进行着色的十六进制字符串。
-    >>
-    >>texture optional Hexadecimal
-    >>用于纹理着色的十六进制字符串。
-    >
-    >textures array[ string ]
-    >此材质希望使用的纹理后缀数组，将使用与引用材质变体的 'availableTextures' 中的值匹配的第一个后缀。
-    >
-    >textureOverrides optional array[ string ]
-    >引用其模型的基本路径与这些值之一匹配的模块将被迫使用该材质的第一个纹理后缀，即使该后缀未在 'availableTextures' 中列出。如果插件想要为基本 tetra 或其他插件添加的某些模块添加特定纹理，这很有用。Obsidian 在 base tetra 中就有一个例子。
-    >
-    >tintOverrides optional boolean
-    >如果设置为 true，当通过 'textureOverrides' 方法提供纹理时，纹理仍将使用材质的色调着色。当 textureOverrides 已经具有彩色纹理时，将此项保留为 false。
-    >
+>magicCapacity unknown <br>
+>由这种材料制成的主要模块变体的神奇容量。 <br>
+
+>toolLevel Tier <br>
+>提供根据材质而变化的工具的模块使用此参数来确定工具的级别。 <br>
+
+>toolEfficiency number <br>
+>提供根据材质而变化的工具的模块使用此参数来确定工具的效率。 <br>
+
+>effectsoptional Tiered data <br>
+>将由模块继承的效果以及从此材料制作的改进。 <br>
+
+>attributes optional map[ string : number ] <br>
+>从材质中获得的先天属性、所有由此材质制作的模块和改进都将继承这些属性。 <br>
+
+>aspects optional map[ string : unknown ] <br>
+>模块将继承的星相以及由此材料制作的改进。适用于材质应影响模块如何通过改进和附魔进行修改的情况。 <br>
+
+>improvements optional map[ string : unknown ] <br>
+>由此材料制成的所有主要模块都将进行这些改进。当用材质制作的主要模块应该有一些效果，但次要模块或改进不应该有效果时很有用。 <br>
+
+>tags optional array[ string ] <br>
+>从此材料派生的变体和改进将在此处列出标签。变体和改进可能会添加其他标签。这是一个 hacky 解决方案，有关更多信息，请参阅模块变体的架构。 <br>
+
+>tints optional <br>
+>>glyph optional Hexadecimal <br>
+>>用于在 UI 中对字形进行着色的十六进制字符串。 <br>
+>>
+>>texture optional Hexadecimal <br>
+>>用于纹理着色的十六进制字符串。 <br>
+
+>textures array[ string ] <br>
+>此材质希望使用的纹理后缀数组，将使用与引用材质变体的 'availableTextures' 中的值匹配的第一个后缀。 <br>
+
+>textureOverrides optional array[ string ] <br>
+>引用其模型的基本路径与这些值之一匹配的模块将被迫使用该材质的第一个纹理后缀，即使该后缀未在 'availableTextures' 中列出。如果插件想要为基本 tetra 或其他插件添加的某些模块添加特定纹理，这很有用。Obsidian 在 base tetra 中就有一个例子。 <br>
+
+>tintOverrides optional boolean <br>
+>如果设置为 true，当通过 'textureOverrides' 方法提供纹理时，纹理仍将使用材质的色调着色。当 textureOverrides 已经具有彩色纹理时，将此项保留为 false <br>。
+
     >material 
     >>items optional array[ Resource location ]
     >>可用作此结果的材质的项目列表。必须设置此字段或 'tag' 字段。
