@@ -111,6 +111,7 @@
 >在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。 <br>
 </p>
 Examples:
+    
     {
       "key": "oak",
       "category": "wood",
@@ -169,6 +170,7 @@ Examples:
         "hammer": 3
       }
     }
+    
 Relevant localization keys
 用于与材质相关的本地化条目的键：
 
