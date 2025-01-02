@@ -110,7 +110,7 @@
 >features optional array[ string ] <br>
 >在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。 <br>
 </p>
-Examples:
+<h2>Examples:</h2>
     
     {
       "key": "oak",
@@ -171,14 +171,16 @@ Examples:
       }
     }
     
-Relevant localization keys
-用于与材质相关的本地化条目的键：
-
-tetra.material.<material_key>: The name of the material, displayed in the holosphere and in the "applicable materials" tooltip in the workbench
-tetra.material.<material_key>.prefix:Used to prefix module variants and improvements derived from this material
-tetra.material.feature.<feature_key>:The label used for a feature, displayed in the holosphere
-tetra.material.feature.<feature_key>.tooltip: This tooltip is displayed when hovering a feature in the holosphere UI
-tetra.material.feature.<feature_key>.tooltip_extended: (Optional) This is added to the tooltip while hovering a feature while holding shift
+<h2>Relevant localization keys</h2>
+<p>
+用于与材质相关的本地化条目的键：<br>
+<br>
+tetra.material.<material_key>: 材质的名称，显示在全息球和工作台的“适用材质”工具提示中 <br>
+tetra.material.<material_key>.prefix: 用于为源自此材料的模块变体和改进添加前缀 <br>
+tetra.material.feature.<feature_key>: 用于功能的标签，显示在全息球中 <br>
+tetra.material.feature.<feature_key>.tooltip: 将鼠标悬停在 holosphere UI 中的功能时，会显示此工具提示 <br>
+tetra.material.feature.<feature_key>.tooltip_extended: (可选) 这会在按住 Shift 键的同时悬停要素时添加到工具提示中<br>
+</p>
 Structure
 原版材质的分组/结构如下：
 
