@@ -100,13 +100,13 @@
 >>确定 itemstack 必须有多大才能匹配此结果。这也决定了制作时消耗多少物品。 <br>
 >
 >定义从此材料派生的结果需要哪个项目。count 字段可以偏移或乘以引用结果。 <br>
->
+
 >requiredTools optional Tiered data <br>
 >定义从此材料得出的结果所需的工具（以及哪些级别），结果可以添加其他工具并乘以/抵消此处提供的级别。 <br>
->
+
 >experienceCost optional number <br>
 >从该材料得出的结果将具有此体验成本，结果可能会增加或减少此值。 <br>
->
+
 >features optional array[ string ] <br>
 >在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。 <br>
 </p>
