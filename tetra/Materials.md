@@ -185,46 +185,46 @@ tetra.material.feature.&lt;feature_key>.tooltip_extended: (可选) 这会在按�
 <p>
 原版材质的分组/结构如下：
 
-├── fabric
-│   └── wool.json
-├── fibre
-│   ├── phantom_membrane.json
-│   ├── string.json
-│   ├── twisting_vine.json
-│   ├── vine.json
-│   └── weeping_vine.json
-├── gem
-│   ├── diamond.json
-│   └── emerald.json
-├── metal
-│   ├── gold.json
-│   ├── iron.json
-│   └── netherite.json
-├── misc
-│   ├── blaze_rod.json
-│   ├── bone.json
-│   └── end_rod.json
-├── scale
-│   └── turtle_scute.json
-├── skin
-│   ├── hide.json
-│   └── leather.json
-├── stone
-│   ├── andesite.json
-│   ├── blackstone.json
-│   ├── diorite.json
-│   ├── flint.json
-│   ├── granite.json
-│   ├── obsidian.json
-│   └── stone.json
-└── wood
-    ├── acacia.json
-    ├── birch.json
-    ├── crimson.json
-    ├── dark_oak.json
-    ├── oak.json
-    ├── spruce.json
-    └── warped.json
+    ├── fabric
+    │   └── wool.json
+    ├── fibre
+    │   ├── phantom_membrane.json
+    │   ├── string.json
+    │   ├── twisting_vine.json
+    │   ├── vine.json
+    │   └── weeping_vine.json
+    ├── gem
+    │   ├── diamond.json
+    │   └── emerald.json
+    ├── metal
+    │   ├── gold.json
+    │   ├── iron.json
+    │   └── netherite.json
+    ├── misc
+    │   ├── blaze_rod.json
+    │   ├── bone.json
+    │   └── end_rod.json
+    ├── scale
+    │   └── turtle_scute.json
+    ├── skin
+    │   ├── hide.json
+    │   └── leather.json
+    ├── stone
+    │   ├── andesite.json
+    │   ├── blackstone.json
+    │   ├── diorite.json
+    │   ├── flint.json
+    │   ├── granite.json
+    │   ├── obsidian.json
+    │   └── stone.json
+    └── wood
+        ├── acacia.json
+        ├── birch.json
+        ├── crimson.json
+        ├── dark_oak.json
+        ├── oak.json
+        ├── spruce.json
+        └── warped.json
     
 </p>
 
