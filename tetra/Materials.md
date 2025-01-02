@@ -181,7 +181,8 @@ tetra.material.feature.&lt;feature_key>: 用于功能的标签，显示在全息
 tetra.material.feature.&lt;feature_key>.tooltip: 将鼠标悬停在 holosphere UI 中的功能时，会显示此工具提示 <br>
 tetra.material.feature.&lt;feature_key>.tooltip_extended: (可选) 这会在按住 Shift 键的同时悬停要素时添加到工具提示中<br>
 </p>
-Structure
+<h2>Structure</h2>
+<p>
 原版材质的分组/结构如下：
 
 ├── fabric
@@ -224,7 +225,8 @@ Structure
     ├── oak.json
     ├── spruce.json
     └── warped.json
-
+    
+</p>
 
 
 
