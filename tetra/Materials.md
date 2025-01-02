@@ -111,64 +111,64 @@
 >在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。 <br>
 </p>
 Examples:
-{
-  "key": "oak",
-  "category": "wood",
-  "primary": "3",
-  "secondary": "4",
-  "tertiary": "6",
-  "durability": "5.2",
-  "integrityCost": "1",
-  "integrityGain": "4",
-  "magicCapacity": "90",
-  "toolLevel": "1",
-  "toolEfficiency": "2",
-  "tints": {
-    "glyph": "oak_glyph",
-    "texture": "oak"
-  },
-  "textures": [
-    "crude",
-    "default"
-  ],
-  "material": {
-    "tag": "minecraft:planks"
-  },
-  "requiredTools": {
-    "axe": 1
-  }
-}
-{
-  "key": "diamond",
-  "category": "gem",
-  "primary": "6",
-  "secondary": "7",
-  "tertiary": "0",
-  "durability": "156.1",
-  "integrityCost": "2",
-  "integrityGain": "2",
-  "magicCapacity": 60,
-  "toolLevel": "4",
-  "toolEfficiency": "8",
-  "tints": {
-    "glyph": "diamond_glyph",
-    "texture": "diamond"
-  },
-  "textures": [
-    "shiny",
-    "crude",
-    "default"
-  ],
-  "material": {
-    "item": "minecraft:diamond"
-  },
-  "improvements": {
-    "arrested": 0
-  },
-  "requiredTools": {
-    "hammer": 3
-  }
-}
+    {
+      "key": "oak",
+      "category": "wood",
+      "primary": "3",
+      "secondary": "4",
+      "tertiary": "6",
+      "durability": "5.2",
+      "integrityCost": "1",
+      "integrityGain": "4",
+      "magicCapacity": "90",
+      "toolLevel": "1",
+      "toolEfficiency": "2",
+      "tints": {
+        "glyph": "oak_glyph",
+        "texture": "oak"
+      },
+      "textures": [
+        "crude",
+        "default"
+      ],
+      "material": {
+        "tag": "minecraft:planks"
+      },
+      "requiredTools": {
+        "axe": 1
+      }
+    }
+    {
+      "key": "diamond",
+      "category": "gem",
+      "primary": "6",
+      "secondary": "7",
+      "tertiary": "0",
+      "durability": "156.1",
+      "integrityCost": "2",
+      "integrityGain": "2",
+      "magicCapacity": 60,
+      "toolLevel": "4",
+      "toolEfficiency": "8",
+      "tints": {
+        "glyph": "diamond_glyph",
+        "texture": "diamond"
+      },
+      "textures": [
+        "shiny",
+        "crude",
+        "default"
+      ],
+      "material": {
+        "item": "minecraft:diamond"
+      },
+      "improvements": {
+        "arrested": 0
+      },
+      "requiredTools": {
+        "hammer": 3
+      }
+    }
 Relevant localization keys
 用于与材质相关的本地化条目的键：
 
