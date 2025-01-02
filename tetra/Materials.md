@@ -24,19 +24,26 @@
 
 >hidden optional boolean <br>
 >如果设置为 true，则此材料不会显示在全息层中。 <br>
+
 >hiddenOutcomes optional boolean <br>
 >如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。 <br>
-    >primary number <br>
-    >主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。 <br>
-    >secondary number <br>
-    >次要属性和效果的乘数。应表示材料密度、刚度或重量，即摆动时携带多少动能。材质模块变体在确定属性和效果时引用此属性。 <br>
-    >tertiary number <br>
-    >三级属性和效果的乘数。应代表柔韧性或抗拉强度，这种材料在弯曲时回弹的速度有多快。材质模块变体在确定属性和效果时引用此属性。 <br>
-    >durability number <br>
-    >耐久度基础，模块使用它来决定平坦或乘数耐久度加成。 <br>
-    >integrityGain number <br>
-    >提供完整性的模块的乘数。 <br>
-    >
+
+>primary number <br>
+>主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。 <br>
+
+>secondary number <br>
+>次要属性和效果的乘数。应表示材料密度、刚度或重量，即摆动时携带多少动能。材质模块变体在确定属性和效果时引用此属性。 <br>
+
+>tertiary number <br>
+>三级属性和效果的乘数。应代表柔韧性或抗拉强度，这种材料在弯曲时回弹的速度有多快。材质模块变体在确定属性和效果时引用此属性。 <br>
+
+>durability number <br>
+>耐久度基础，模块使用它来决定平坦或乘数耐久度加成。 <br>
+
+>integrityGain number <br>
+>提供完整性的模块的乘数。 <br>
+
+
     >integrityCost number
     >消耗完整性的模块的乘数。
     >
