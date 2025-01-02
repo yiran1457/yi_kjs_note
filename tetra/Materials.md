@@ -84,31 +84,31 @@
 >引用其模型的基本路径与这些值之一匹配的模块将被迫使用该材质的第一个纹理后缀，即使该后缀未在 'availableTextures' 中列出。如果插件想要为基本 tetra 或其他插件添加的某些模块添加特定纹理，这很有用。Obsidian 在 base tetra 中就有一个例子。 <br>
 
 >tintOverrides optional boolean <br>
->如果设置为 true，当通过 'textureOverrides' 方法提供纹理时，纹理仍将使用材质的色调着色。当 textureOverrides 已经具有彩色纹理时，将此项保留为 false <br>。
+>如果设置为 true，当通过 'textureOverrides' 方法提供纹理时，纹理仍将使用材质的色调着色。当 textureOverrides 已经具有彩色纹理时，将此项保留为 false。 <br>
 
-    >material 
-    >>items optional array[ Resource location ]
-    >>可用作此结果的材质的项目列表。必须设置此字段或 'tag' 字段。
-    >>
-    >>tag optional Resource location
-    >>可用于确定项目是否可以用作此结果的材料。必须设置此字段或 'items' 字段。
-    >>
-    >>nbt optional map[ string : unknown ]
-    >>如果材质堆栈应该有一些特定的 nbt 数据，可以设置。
-    >>
-    >>count optional number
-    >>确定 itemstack 必须有多大才能匹配此结果。这也决定了制作时消耗多少物品。
-    >
-    >定义从此材料派生的结果需要哪个项目。count 字段可以偏移或乘以引用结果。
-    >
-    >requiredTools optional Tiered data
-    >定义从此材料得出的结果所需的工具（以及哪些级别），结果可以添加其他工具并乘以/抵消此处提供的级别。
-    >
-    >experienceCost optional number
-    >从该材料得出的结果将具有此体验成本，结果可能会增加或减少此值。
-    >
-    >features optional array[ string ]
-    >在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。
+>material  <br>
+>>items optional array[ Resource location ] <br>
+>>可用作此结果的材质的项目列表。必须设置此字段或 'tag' 字段。 <br>
+>>
+>>tag optional Resource location <br>
+>>可用于确定项目是否可以用作此结果的材料。必须设置此字段或 'items' 字段。 <br>
+>>
+>>nbt optional map[ string : unknown ] <br>
+>>如果材质堆栈应该有一些特定的 nbt 数据，可以设置。 <br>
+>>
+>>count optional number <br>
+>>确定 itemstack 必须有多大才能匹配此结果。这也决定了制作时消耗多少物品。 <br>
+>
+>定义从此材料派生的结果需要哪个项目。count 字段可以偏移或乘以引用结果。 <br>
+>
+>requiredTools optional Tiered data <br>
+>定义从此材料得出的结果所需的工具（以及哪些级别），结果可以添加其他工具并乘以/抵消此处提供的级别。 <br>
+>
+>experienceCost optional number <br>
+>从该材料得出的结果将具有此体验成本，结果可能会增加或减少此值。 <br>
+>
+>features optional array[ string ] <br>
+>在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。 <br>
 </p>
 Examples:
 {
