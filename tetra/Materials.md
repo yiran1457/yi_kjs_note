@@ -18,19 +18,19 @@
   Format:<br>
   
 >replace optional boolean <br>
->标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材质的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。<br>
+>标记是否应替换或合并此原理图定义的现有条目（如果有）。由其他 Mod 和数据包添加的材料的默认行为是将它们设置的值合并到现有条目中（如果有）。通过将 replace 设置为 true，可以完全替换 tetra 注册的材质，这在想要删除某些内容时非常有用。<br>
 
 >-key string <br>
->-材料的标识符，将用作此材料的模块变体的后缀。 <br>
+>-材料的标识符，将用作来自该材料的模块变体的后缀。 <br>
 
 >category optional string <br>
->适用于此材料的所有模块变体。 <br>
+>应用于来自此材料的所有模块变体。 <br>
 
 >hidden optional boolean <br>
->如果设置为 true，则此材料不会显示在全息层中。 <br>
+>如果设置为 true，此材料将不会出现在全息球中。 <br>
 
 >hiddenOutcomes optional boolean <br>
->如果设置为 true，则从此材料派生的 module 和 improvement 变体将不会显示在 holosphere 中。 <br>
+>如果设置为 true，由此材料派生的模块和改进变体将不会出现在全息球中。 <br>
 
 >primary number <br>
 >主要属性和效果的乘数。应表示硬度、锐度或将此材料塑造成具有硬/锐边的能力。材质模块变体在确定属性和效果时引用此属性。 <br>
