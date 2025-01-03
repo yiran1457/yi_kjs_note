@@ -66,55 +66,55 @@
 >从材料获得的固有属性，所有从这种材料制作的模块和改进都将继承这些属性。 <br>
 
 >aspects optional map[ string : unknown ] <br>
->模块将继承的星相以及由此材料制作的改进。适用于材质应影响模块如何通过改进和附魔进行修改的情况。 <br>
+>将由从这种材料制作的模块和改进继承的方面。当材料应影响模块如何通过改进和附魔进行修改时使用。 <br>
 
 >improvements optional map[ string : unknown ] <br>
->由此材料制成的所有主要模块都将进行这些改进。当用材质制作的主要模块应该有一些效果，但次要模块或改进不应该有效果时很有用。 <br>
+>所有主要模块制成此材料将具有这些改进。当主要模块制成材料应具有一些效果，但次要模块或改进不应具有时有用。 <br>
 
 >tags optional array[ string ] <br>
->从此材料派生的变体和改进将在此处列出标签。变体和改进可能会添加其他标签。这是一个 hacky 解决方案，有关更多信息，请参阅模块变体的架构。 <br>
+>从这种材料衍生的变体和改进将具有此处列出的标签。变体和改进可以添加额外的标签。这是一个临时解决方案，请参阅模块变体的模式以获取更多信息。 <br>
 
 >tints optional <br>
 >>glyph optional Hexadecimal <br>
->>用于在 UI 中对字形进行着色的十六进制字符串。 <br>
+>>用于在UI中着色符号的十六进制字符串。 <br>
 >>
 >>texture optional Hexadecimal <br>
->>用于纹理着色的十六进制字符串。 <br>
+>>用于纹理着色的十六进制字符串 <br>
 
 >textures array[ string ] <br>
->此材质希望使用的纹理后缀数组，将使用与引用材质变体的 'availableTextures' 中的值匹配的第一个后缀。 <br>
+>这是该材料希望使用的一系列纹理后缀，将使用与引用材料变体中的‘availableTextures’（可用纹理）匹配的第一个后缀。 <br>
 
 >textureOverrides optional array[ string ] <br>
->引用其模型的基本路径与这些值之一匹配的模块将被迫使用该材质的第一个纹理后缀，即使该后缀未在 'availableTextures' 中列出。如果插件想要为基本 tetra 或其他插件添加的某些模块添加特定纹理，这很有用。Obsidian 在 base tetra 中就有一个例子。 <br>
+>引用具有与这些值之一匹配的基本路径的模型的模块将被迫使用此材料的第一个纹理后缀，即使该后缀未列在'availableTextures'中。如果插件想要为某些模块添加特定纹理，则这很有用，这些模块由基础tetra或其他插件添加。Obsidian在基础tetra中有此示例。 <br>
 
 >tintOverrides optional boolean <br>
->如果设置为 true，当通过 'textureOverrides' 方法提供纹理时，纹理仍将使用材质的色调着色。当 textureOverrides 已经具有彩色纹理时，将此项保留为 false。 <br>
+>如果设置为 true，当通过 'textureOverrides' 方法提供纹理时，纹理仍将使用材料的着色进行着色。当 textureOverrides 已经具有彩色纹理时，保留此值为 false。 <br>
 
 >material  <br>
 >>items optional array[ Resource location ] <br>
->>可用作此结果的材质的项目列表。必须设置此字段或 'tag' 字段。 <br>
+>>可以用作此结果材料的物品列表。必须设置此字段或'tag'字段。 <br>
 >>
 >>tag optional Resource location <br>
->>可用于确定项目是否可以用作此结果的材料。必须设置此字段或 'items' 字段。 <br>
+>>一个标签，用于确定物品是否可以用作此结果的材料。必须设置此字段或'items'字段。 <br>
 >>
 >>nbt optional map[ string : unknown ] <br>
->>如果材质堆栈应该有一些特定的 nbt 数据，可以设置。 <br>
+>>如果材料应具有特定的 nbt 数据，则可以设置。 <br>
 >>
 >>count optional number <br>
->>确定 itemstack 必须有多大才能匹配此结果。这也决定了制作时消耗多少物品。 <br>
+>>确定匹配此结果所需的物品数量。这也决定了在制作时消耗多少物品。 <br>
 >
->定义从此材料派生的结果需要哪个项目。count 字段可以偏移或乘以引用结果。 <br>
+>定义从此材料派生的结果需要哪个物品。count 字段可以偏移或乘以引用结果。 <br>
 
 >requiredTools optional Tiered data <br>
->定义从此材料得出的结果所需的工具（以及哪些级别），结果可以添加其他工具并乘以/抵消此处提供的级别。 <br>
+>定义从这种材料派生的结果所需的工具（及其级别），结果可以添加额外的工具并乘以/偏移此处提供的级别。 <br>
 
 >experienceCost optional number <br>
->从该材料得出的结果将具有此体验成本，结果可能会增加或减少此值。 <br>
+>从这种材料派生的结果将具有此经验成本，结果可以从这个值中添加或减去。 <br>
 
 >features optional array[ string ] <br>
->在 holosphere 中查看材料时，会显示特征，用于描述与此材料相关的制作效果行为。例如，tetracelium 使用它来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。 <br>
+>在查看材料的全息球时显示功能，用于描述与这种材料相关的制作效果行为。例如，tetracelium 使用此功能来描述 Twilight Forest 金属如何根据模块类型应用不同的附魔。 <br>
 </p>
-<h2>Examples:</h2>
+<h2>示例:</h2>
     
     {
       "key": "oak",
@@ -143,6 +143,7 @@
         "axe": 1
       }
     }
+
     {
       "key": "diamond",
       "category": "gem",
@@ -175,7 +176,7 @@
       }
     }
     
-<h2>Relevant localization keys</h2>
+<h2>相关的本地化键值</h2>
 <p>
 用于与材质相关的本地化条目的键：<br>
 <br>
@@ -185,7 +186,7 @@ tetra.material.feature.&lt;feature_key>: 用于功能的标签，显示在全息
 tetra.material.feature.&lt;feature_key>.tooltip: 将鼠标悬停在 holosphere UI 中的功能时，会显示此工具提示 <br>
 tetra.material.feature.&lt;feature_key>.tooltip_extended: (可选) 这会在按住 Shift 键的同时悬停要素时添加到工具提示中<br>
 </p>
-<h2>Structure</h2>
+<h2></h2>文件结构</h2>
 <p>
 原版材质的分组/结构如下：
 
